@@ -1,0 +1,9 @@
+package com.tomtom.patternchecker.services;
+
+public interface IOStream {
+	String[] getUserInputs();
+	void printOutput(Map<String, Integer> result);
+
+
+
+}

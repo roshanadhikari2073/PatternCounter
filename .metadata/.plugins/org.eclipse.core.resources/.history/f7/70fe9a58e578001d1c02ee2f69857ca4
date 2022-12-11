@@ -1,0 +1,19 @@
+package com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.services;
+
+import java.util.Map;
+
+public class IOStreamImpl implements IOStream {
+
+	@Override
+	public String[] promptForInput() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void computeOutput(Map<String, Integer> result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

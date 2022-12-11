@@ -1,0 +1,7 @@
+package com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.services;
+
+import java.util.Map;
+
+public class IOStreamImpl {
+
+}

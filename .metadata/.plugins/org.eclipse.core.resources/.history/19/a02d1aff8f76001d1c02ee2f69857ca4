@@ -1,0 +1,34 @@
+package com.tomtom.patternchecker;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class PatternCounter {
+
+	public static void main(String[] args) throws IOException {
+		
+		System.out.println("Input java PatternCounter <path_of_your_text_file>");
+
+
+		var scanner = new Scanner(System.in);
+		String inputFile = scanner.nextLine();
+
+
+//		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		Scanner s = new Scanner(new File(inputFile));
+
+//		StringBuilder input = new StringBuilder();
+		ArrayList<String> list = new ArrayList<String>();
+
+		while (s.hasNext()){
+		    list.add(s.next());
+		}
+		
+		System.out.println(list.get(1));
+
+	}
+}

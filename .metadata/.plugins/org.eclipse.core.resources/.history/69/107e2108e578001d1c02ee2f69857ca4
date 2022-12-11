@@ -1,0 +1,5 @@
+package com.tomtom.patternchecker.services;
+
+public class IOStreamImpl {
+
+}

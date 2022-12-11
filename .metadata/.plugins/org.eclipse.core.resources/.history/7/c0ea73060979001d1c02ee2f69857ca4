@@ -1,0 +1,49 @@
+package com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.Impl;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+import com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.InputStream;
+import com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.OutputStream;
+
+public class IOStream {
+	
+	InputStream inputStream;
+	OutputStream outputStream;
+	
+	public IOStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+
+	public IOStream(OutputStream outputStream) {
+		this.outputStream = outputStream;
+	}
+
+	public IOStream(InputStream inputStream, OutputStream outputStream) {
+		this.inputStream = inputStream;
+		this.outputStream = outputStream;
+	}
+	
+	/**
+	 * function to get the user inputs with given standard input specified
+	 * @return ArrayList user inputs
+	 */
+	public ArrayList<String> promptForInput() {
+		if (this.inputStream != null) {
+			return this.inputStream.promptForInput();
+		} else {
+			return new ArrayList<String>();
+		}
+	}
+
+	/**
+	 * function to print the output 
+	 * @param ArrayList user inputs
+	 */
+	public void computeOutput(Map<String, Integer> result) {
+		if (this.outputStream != null) {
+			this.outputStream.computeOutput(result);
+		}
+
+	}
+}

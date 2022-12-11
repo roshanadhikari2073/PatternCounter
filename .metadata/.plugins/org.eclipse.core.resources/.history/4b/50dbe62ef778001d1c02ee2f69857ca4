@@ -1,0 +1,57 @@
+package com.tomtom.patternchecker;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class PatternCheckerImpl implements PatternCheckerService {
+	
+
+	@Override
+	public Map<String, Integer> patternCounter(String patternType, List<String> line) throws Exception {
+
+		Map<String, Integer> counts = new HashMap<>();
+	    switch (patternType) {
+	      case "word":
+	        // Count occurrences of each unique word (excluding numbers) in the document
+	        Pattern wordPattern = Pattern.compile("\\b[^\\d]+\\b");
+	        Matcher wordMatcher = wordPattern.matcher(line);
+	        while (wordMatcher.find()) {
+	          String word = wordMatcher.group();
+	          counts.put(word, counts.getOrDefault(word, 0) + 1);
+	        }
+	        break;
+	      case "number":
+	        // Count occurrences of each unique number in the document
+	        Pattern numberPattern = Pattern.compile("\\b\\d+\\b");
+	        Matcher numberMatcher = numberPattern.matcher(line);
+	        while (numberMatcher.find()) {
+	          String number = numberMatcher.group();
+	          counts.put(number, counts.getOrDefault(number, 0) + 1);
+	        }
+	        break;
+	      case "phrase":
+	        // Count occurrences of each unique phrase of three consecutive words in the document
+	        Pattern phrasePattern = Pattern.compile("\\b[^\\d]+\\b \\b[^\\d]+\\b \\b[^\\d]+\\b");
+	        Matcher phraseMatcher = phrasePattern.matcher(line);
+	        while (phraseMatcher.find()) {
+	          String phrase = phraseMatcher.group();
+	          counts.put(phrase, counts.getOrDefault(phrase, 0) + 1);
+	        }
+	        break;
+	      default:
+	        System.out.println("Invalid pattern type");
+	    }
+
+		return counts;
+	}
+
+
+}

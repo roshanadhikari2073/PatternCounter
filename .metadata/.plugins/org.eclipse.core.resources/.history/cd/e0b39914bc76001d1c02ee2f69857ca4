@@ -1,0 +1,9 @@
+package com.tomtom.patternchecker;
+
+import java.util.List;
+
+public interface PatternCheckerService {
+	
+	String patternCounter(String type, List<String> line) throws Exception;
+
+}

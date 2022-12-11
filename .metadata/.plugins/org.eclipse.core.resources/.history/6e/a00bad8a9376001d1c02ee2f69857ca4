@@ -1,0 +1,59 @@
+package com.tomtom.patternchecker;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class PatternCounter {
+
+	public static void main(String[] args) throws IOException {
+		
+		System.out.println("Input java PatternCounter <path_of_your_text_file>");
+
+		var scanner = new Scanner(System.in);
+		String inputFile = scanner.nextLine();
+//		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+//		StringBuilder input = new StringBuilder();
+//		String line;
+//		while ((line = reader.readLine()) != null) {
+//			input.append(line);
+//		}
+//	    String str[] = input.toString().split(" ");
+//	    List<String> al = Arrays.asList(str);
+//		System.out.println(al.get(0));
+	    BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+
+	    // Create a list to hold the words
+	    List<String> words = new ArrayList<>();
+
+	    // Read the first line of the file
+	    String line = reader.readLine();
+
+	    // Keep reading lines until there are no more left
+	    while (line != null) {
+	      // Split the line into words
+	      String[] lineWords = line.split("\\s+");
+
+	      // Add each word to the list
+	      for (String word : lineWords) {
+	        words.add(word);
+	      }
+
+	      // Read the next line
+	      line = reader.readLine();
+	    }
+
+	    // Close the reader
+	    reader.close();
+
+	    // Print the words, one per line
+	    for (int i = 0; i < words.size(); i++) {
+	      System.out.println(i + ": " + words.get(i));
+	    }
+
+	}
+}

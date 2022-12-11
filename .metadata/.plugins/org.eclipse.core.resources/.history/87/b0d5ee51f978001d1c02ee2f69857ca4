@@ -1,0 +1,11 @@
+package com.tomtom.patternchecker.IOConsoleStream;
+
+import com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.InputStream;
+
+public class ConsolePrompt implements InputStream {
+
+	@Override
+	public ArrayList<String> promptForInput() {
+		return null;
+	}
+}

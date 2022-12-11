@@ -1,0 +1,6 @@
+package com.tomtom.patternchecker.services;
+
+public interface InputStream {
+	String[] promptForInput();
+
+}

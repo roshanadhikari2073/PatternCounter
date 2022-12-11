@@ -1,0 +1,43 @@
+package com.tomtom.patternchecker.IOConsoleStream;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream.InputStream;
+
+public class ConsolePrompt implements InputStream {
+
+	@Override
+	public ArrayList<String> promptForInput() {
+		String[] args = new String[2];
+		Scanner scanner = new Scanner(System.in);
+		for (int i = 0; i < 2; i++) {
+			args[i] = scanner.nextLine();
+		}
+		String filePath = args[0];
+		int patternNumber = Integer.parseInt(args[1]);
+		ArrayList<String> words = new ArrayList<>();
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(filePath));
+			String line = reader.readLine();
+			while (line != null) {
+				String[] lineWords = line.split(" ");
+				for (String word : lineWords) {
+					words.add(word);
+				}
+
+				line = reader.readLine();
+			}
+			reader.close();
+		} catch (IOException e) {
+			System.out.println("An error occurred while reading the input file");
+			e.printStackTrace();
+		}
+		return words;
+	}
+}

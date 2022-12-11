@@ -1,0 +1,13 @@
+package com.tomtom.patternchecker.services.PatternCounterUtils;
+
+public class PatternCounterUtils {
+
+	public static boolean isNumeric(String str) { 
+		  try {  
+		    Double.parseDouble(str);  
+		    return true;
+		  } catch(NumberFormatException e){  
+		    return false;  
+		  }  
+		}
+}

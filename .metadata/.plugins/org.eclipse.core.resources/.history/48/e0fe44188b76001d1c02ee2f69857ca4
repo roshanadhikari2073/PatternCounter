@@ -1,0 +1,40 @@
+package com.tomtom.patternchecker;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class PatternChecker {
+  public static void main(String[] args) throws IOException {
+    // Check if the required number of command line arguments are provided
+    if (args.length != 2) {
+      System.out.println("Usage: java PatternCounter <input_file> <pattern>");
+      return;
+    }
+
+    // Parse the input file path and pattern from the command line arguments
+    String inputFile = args[0];
+    String pattern = args[1];
+
+    // Read the input file and store its contents in a string
+    BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+    StringBuilder input = new StringBuilder();
+    String line;
+    while ((line = reader.readLine()) != null) {
+      input.append(line);
+      input.append('\n');
+    }
+    reader.close();
+
+    // Calculate the number of occurrences of the specified pattern in the input string
+    int count = 0;
+    int index = 0;
+    while ((index = input.indexOf(pattern, index)) != -1) {
+      count++;
+      index += pattern.length();
+    }
+
+    // Print the number of occurrences of the pattern
+    System.out.println("Number of occurrences: " + count);
+  }
+}

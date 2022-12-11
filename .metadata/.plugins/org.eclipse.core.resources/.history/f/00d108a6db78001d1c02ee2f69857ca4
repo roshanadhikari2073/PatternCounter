@@ -1,0 +1,39 @@
+package com.tomtom.patternchecker.services.PatternCounterUtils;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+public class PatternCounterUtils {
+	
+	/**
+	 * @param string input string to check
+	 * @return boolean - is number or not
+	 */
+	
+	public static boolean isNumeric(String str) {
+		try {
+			Double.parseDouble(str);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @param string input of the path from the user
+	 * @return strings in list from the read path file
+	 */
+	public List<String> argsToStringList(String path) throws IOException {
+		BufferedReader reader = new BufferedReader(new FileReader(path));
+		StringBuilder input = new StringBuilder();
+		String line;
+		while ((line = reader.readLine()) != null) {
+			input.append(line);
+		}
+		List<String> arrline = Arrays.asList(input.toString().split(" "));
+		return arrline;
+	}
+}

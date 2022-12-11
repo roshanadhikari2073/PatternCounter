@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class PatternChecker {
+  public static void main(String[] args) throws IOException {
+    // Check if the required number of command line arguments are provided
+    if (args.length != 2) {
+      System.out.println("Usage: java PatternCounter <input_file> <pattern_number>");
+      return;
+    }
+
+    // Parse the input file path and pattern number from the command line arguments
+    String inputFile = args[0];
+    int patternNumber = Integer.parseInt(args[1]);
+
+    // Read the input file and store its contents in a string
+    BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+    StringBuilder input = new StringBuilder();
+    String line;
+    while ((line = reader.readLine()) != null) {
+      input.append(line);
+      input.append('\n');
+    }
+    reader.close();
+
+    // Count occurrences of the specified pattern in the input string
+    Map<String, Integer> counts = new HashMap<>();
+    switch (patternNumber) {
+      case 1:
+        // Count occurrences of each unique word (excluding numbers) in the document
+        Pattern wordPattern = Pattern.compile("\\b[^\\d]+\\b");
+        Matcher wordMatcher = wordPattern.matcher(input);
+        while (wordMatcher.find()) {
+          String word = wordMatcher.group();
+          counts.put(word, counts.getOrDefault(word, 0) + 1);
+        }
+        break;
+      case 2:
+        // Count occurrences of each unique number in the document
+        Pattern numberPattern = Pattern.compile("\\b\\d+\\b");
+        Matcher numberMatcher = numberPattern.matcher(input);
+        while (numberMatcher.find()) {
+          String number = numberMatcher.group();
+          counts.put(number, counts.getOrDefault(number, 0) + 1);
+        }
+        break;
+      case 3:
+        // Count occurrences of each unique phrase of three consecutive words in the document
+        Pattern phrasePattern = Pattern.compile("\\b[^\\d]+\\b \\b[^\\d]+\\b \\b[^\\d]+\\b");
+        Matcher phraseMatcher = phrasePattern.matcher(input);
+        while (phraseMatcher.find()) {
+          String phrase = phraseMatcher.group();
+          counts.put(phrase, counts.getOrDefault(phrase, 0) + 1);
+        }
+        break;
+      default:
+        System.out.println("Invalid pattern number");
+        return;
+    }
+
+    // Print the counts for each unique pattern
+    for (Map.Entry<String, Integer> entry : counts.entrySet()) {
+      System.out.println(entry.getKey() + ": " + entry.getValue());
+    }
+  }
+}

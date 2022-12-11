@@ -1,0 +1,46 @@
+package com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+public class IOStream {
+	
+	InputStream inputStream;
+	OutputStream outputStream;
+	
+	public IOStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+
+	public IOStream(OutputStream outputStream) {
+		this.outputStream = outputStream;
+	}
+
+	public IOStream(InputStream inputStream, OutputStream outputStream) {
+		this.inputStream = inputStream;
+		this.outputStream = outputStream;
+	}
+	
+	/**
+	 * function to get the user inputs with given standard input specified
+	 * @return String[] user inputs
+	 */
+	public ArrayList<String> getUserInputs() {
+		if (this.inputStream != null) {
+			return this.inputStream.promptForInput();
+		} else {
+			return new ArrayList<String>;
+		}
+	}
+
+	/**
+	 * function to iterate over the given map and prints it in standard output specified
+	 * @param result Map&lt;String,Integer&gt;- The unique item as key and count as number
+	 */
+	public void printResult(Map<String, Integer> result) {
+		if (this.outputStream != null) {
+			this.outputStream.computeOutput(result);
+		}
+
+	}
+}

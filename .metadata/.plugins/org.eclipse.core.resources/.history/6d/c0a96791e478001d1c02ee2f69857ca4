@@ -1,0 +1,8 @@
+package com.tomtom.patternchecker.services;
+
+import java.util.Map;
+
+public interface IOStream {
+	String[] promptForInput();
+	void computeOutput(Map<String, Integer> result);
+	}
