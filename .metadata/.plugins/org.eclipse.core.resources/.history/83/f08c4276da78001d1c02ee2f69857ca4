@@ -1,4 +1,4 @@
-package com.tomtom.patternchecker.services.PatternCounterUtils;
+package com.tomtom.patternchecker.utils;
 
 public class PatternCounterUtils {
 

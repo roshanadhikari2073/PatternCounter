@@ -1,5 +1,6 @@
-package com.tomtom.patternchecker.services.counter;
+package com.tomtom.patternchecker.patterncounter.counter;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -8,9 +9,9 @@ import java.util.Map;
 public interface IPatternCounter {
     /**
      * Get Distinct counts of word/number/phrase from given input string
-     * @param file - file contents as string
-     * @param fileName - name of the file
+     * @param path - file contents as string
+     * @param patternType - name of the file
      * @return  Map&lt;String,Integer&gt;- The unique item as key and count as number
      */
-    public Map<String, Integer> getCount(String file, String fileName);
+    public Map<String, ?> getCounts(String path, Integer patternType) throws Exception;
 }

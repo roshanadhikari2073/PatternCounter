@@ -1,4 +1,4 @@
-package com.tomtom.patternchecker.services;
+package com.tomtom.patternchecker.patterncounter;
 
 public interface InputStream {
 	String[] promptForInput();

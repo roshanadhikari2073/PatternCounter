@@ -1,4 +1,4 @@
-package com.tomtom.patternchecker.services.counter;
+package com.tomtom.patternchecker.patterncounter.counter;
 
 import java.util.Map;
 
