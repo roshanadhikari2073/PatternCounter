@@ -4,6 +4,7 @@ import com.tomtom.patternchecker.IOConsoleStream.Console.ConsoleOutput;
 import com.tomtom.patternchecker.IOConsoleStream.Console.ConsolePrompt;
 import com.tomtom.patternchecker.IOConsoleStream.IOStream.IOStream;
 import com.tomtom.patternchecker.patterncounter.counter.IPatternCounter;
+import com.tomtom.patternchecker.utils.PatternCounterUtils;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,8 @@ import static com.tomtom.patternchecker.patterncounter.PatternCounterConstants.I
 
 public class Application {
 	private static IPatternCounter patternCounterService;
+	private static PatternCounterUtils patternCounterUtils;
+
 
 	public static void main(String[] args) throws Exception {
 	IOStream ioStream = new IOStream(new ConsolePrompt(), new ConsoleOutput());
@@ -27,7 +30,7 @@ public class Application {
 		runTheProgram = false;
 	}
 	if(runTheProgram){
-		patternCounterService.getCounts(pathName, patternType);
+		patternCounterUtils.consolePrintMap(patternCounterService.getCounts(pathName, patternType));
 	}
 }
 }
