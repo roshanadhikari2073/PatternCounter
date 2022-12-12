@@ -1,9 +1,9 @@
 package com.tomtom.patternchecker.IOConsoleStream.Console;
 
+import com.tomtom.patternchecker.IOConsoleStream.IOStream.IInputStream;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import com.tomtom.patternchecker.IOConsoleStream.IOStream.IInputStream;
 public class ConsolePrompt implements IInputStream {
 
 	@Override

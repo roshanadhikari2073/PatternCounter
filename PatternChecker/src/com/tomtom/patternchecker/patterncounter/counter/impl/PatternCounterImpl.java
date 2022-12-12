@@ -3,6 +3,7 @@ package com.tomtom.patternchecker.patterncounter.counter.impl;
 import com.tomtom.patternchecker.patterncounter.PatternCounterConstants;
 import com.tomtom.patternchecker.patterncounter.counter.IPatternCounter;
 import com.tomtom.patternchecker.utils.PatternCounterUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

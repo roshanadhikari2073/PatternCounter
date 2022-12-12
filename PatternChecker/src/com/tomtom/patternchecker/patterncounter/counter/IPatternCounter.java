@@ -1,6 +1,5 @@
 package com.tomtom.patternchecker.patterncounter.counter;
 
-import java.io.IOException;
 import java.util.Map;
 
 /**
