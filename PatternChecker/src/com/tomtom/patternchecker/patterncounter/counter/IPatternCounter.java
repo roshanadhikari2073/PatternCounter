@@ -13,5 +13,5 @@ public interface IPatternCounter {
      * @param patternType - name of the file
      * @return  Map&lt;String,Integer&gt;- The unique item as key and count as number
      */
-    public Map<String, ?> getCounts(String path, Integer patternType) throws Exception;
+    Map<String, ?> getCounts(String path, Integer patternType) throws Exception;
 }

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -68,9 +69,7 @@ public class PatternCounterUtils {
         String line = reader.readLine();
         while (!line.isEmpty()) {
             String[] lineWords = line.split(" ");
-            for (String word : lineWords) {
-                words.add(word);
-            }
+            Collections.addAll(words, lineWords);
             line = reader.readLine();
         }
         reader.close();
@@ -79,7 +78,7 @@ public class PatternCounterUtils {
 
     public void consolePrintMap(Map<String, ?> result) {
         for (Map.Entry<String, ?> entry : result.entrySet()) {
-            String key = entry.getKey().toString();
+            String key = entry.getKey();
             Object value = entry.getValue();
             if ((key != null) && (value == null)) {
                 System.out.println(key + "\n");

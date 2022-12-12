@@ -20,10 +20,10 @@ public class ConsoleOutput implements IOutputStream {
 	private void processResults(Map<String, Integer> value) {
 		try {
 			for (Map.Entry<String, Integer> entry : value.entrySet()) {
-				if ((entry.getKey().toString() != null) && (value == null)) {
-					System.out.println(entry.getKey().toString() + "\n");
+				if ((entry.getKey() != null) && (value == null)) {
+					System.out.println(entry.getKey() + "\n");
 				} else {
-					System.out.println(entry.getKey().toString() + ", " + entry.getValue() + "\n");
+					System.out.println(entry.getKey() + ", " + entry.getValue() + "\n");
 				}
 
 			}
